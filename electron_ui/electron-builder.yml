@@ -1,0 +1,62 @@
+appId: info.deeptutor.app
+directories:
+  buildResources: ../assets/figs/logo
+  output: ../dist/electron_ui
+electronDownload:
+  mirror: https://npmmirror.com/mirrors/electron/
+extraFiles:
+- from: ../deeptutor
+  to: resources/app/deeptutor
+- from: ../deeptutor_cli
+  to: resources/app/deeptutor_cli
+- from: ../deeptutor_web
+  to: resources/app/deeptutor_web
+- from: ../assets/figs/logo/logo.png
+  to: assets/figs/logo/logo.png
+files:
+- dist/**/*
+- package.json
+- index.html
+npmRebuild: false
+nsis:
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  oneClick: false
+  shortcutName: DeepTutor
+productName: DeepTutor
+win:
+  artifactName: ${productName}-Setup-${version}-${arch}.${ext}
+  icon: logo.png
+  signAndEditExecutable: false
+  signDlls: false
+  signingHashAlgorithms: []
+  target:
+  - arch:
+    - x64
+    target: nsis
+  - arch:
+    - x64
+    target: dir
+linux:
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  icon: logo.png
+  maintainer: promoteAI <1035959050@qq.com>
+  homepage: https://github.com/promoteAI/DeepTutor
+  target:
+    - arch: x64
+      target: AppImage
+    - arch: x64
+      target: deb
+mac:
+  artifactName: ${productName}-${version}-${arch}.${ext}
+  icon: logo.png
+  category: public.app-category.education
+  target:
+    - arch: x64
+      target: dmg
+    - arch: x64
+      target: zip
+    - arch: x64
+      target: dir
+publish: null
