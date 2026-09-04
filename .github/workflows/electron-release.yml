@@ -77,14 +77,28 @@ jobs:
             arch: x64
             target: win
             zip_cmd: powershell -Command "Compress-Archive -Path dist/electron_ui/win-unpacked -DestinationPath dist/electron_ui/DeepTutor-${{needs.verify-version.outputs.version}}-win-x64.zip"
+          - platform: Windows
+            os: windows-latest
+            arch: arm64
+            target: win
+            zip_cmd: powershell -Command "Compress-Archive -Path dist/electron_ui/win-unpacked -DestinationPath dist/electron_ui/DeepTutor-${{needs.verify-version.outputs.version}}-win-arm64.zip"
           - platform: Linux
             os: ubuntu-latest
             arch: x64
             target: linux
             zip_cmd: tar czf dist/electron_ui/DeepTutor-${{needs.verify-version.outputs.version}}-linux-x64.tar.gz -C dist/electron_ui linux-unpacked
+          - platform: Linux
+            os: ubuntu-latest
+            arch: arm64
+            target: linux
+            zip_cmd: tar czf dist/electron_ui/DeepTutor-${{needs.verify-version.outputs.version}}-linux-arm64.tar.gz -C dist/electron_ui linux-unpacked
           - platform: macOS
             os: macos-latest
             arch: x64
+            target: mac
+          - platform: macOS
+            os: macos-latest
+            arch: arm64
             target: mac
     steps:
       - name: Checkout

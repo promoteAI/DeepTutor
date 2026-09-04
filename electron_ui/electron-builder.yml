@@ -38,6 +38,12 @@ win:
   - arch:
     - x64
     target: dir
+  - arch:
+    - arm64
+    target: nsis
+  - arch:
+    - arm64
+    target: dir
 linux:
   artifactName: ${productName}-${version}-linux-${arch}.${ext}
   icon: logo.png
@@ -46,6 +52,10 @@ linux:
     - arch: x64
       target: AppImage
     - arch: x64
+      target: deb
+    - arch: arm64
+      target: AppImage
+    - arch: arm64
       target: deb
 mac:
   artifactName: ${productName}-${version}-macos-${arch}.${ext}
@@ -57,5 +67,11 @@ mac:
     - arch: x64
       target: zip
     - arch: x64
+      target: dir
+    - arch: arm64
+      target: dmg
+    - arch: arm64
+      target: zip
+    - arch: arm64
       target: dir
 publish: null

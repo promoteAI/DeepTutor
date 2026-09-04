@@ -38,20 +38,36 @@ Electron wrapper for DeepTutor — spawns the Python launcher and embeds the Web
 
 ### Platform-specific builds
 
+All platforms support `x64` (Intel/AMD) and `arm64` (Apple Silicon / ARM Windows):
+
 ```bash
-# Windows
+# Windows x64
 npx electron-builder --win --x64
 # Output: ../dist/electron_ui/DeepTutor-Setup-{version}-win-x64.exe
 
-# Linux
+# Windows arm64
+npx electron-builder --win --arm64
+# Output: ../dist/electron_ui/DeepTutor-Setup-{version}-win-arm64.exe
+
+# Linux x64
 npx electron-builder --linux --x64
 # Output: ../dist/electron_ui/DeepTutor-{version}-linux-x64.AppImage
 #         ../dist/electron_ui/DeepTutor-{version}-linux-x64.deb
 
-# macOS
+# Linux arm64
+npx electron-builder --linux --arm64
+# Output: ../dist/electron_ui/DeepTutor-{version}-linux-arm64.AppImage
+#         ../dist/electron_ui/DeepTutor-{version}-linux-arm64.deb
+
+# macOS x64 (Intel)
 npx electron-builder --mac --x64
 # Output: ../dist/electron_ui/DeepTutor-{version}-macos-x64.dmg
 #         ../dist/electron_ui/DeepTutor-{version}-macos-x64.zip
+
+# macOS arm64 (Apple Silicon)
+npx electron-builder --mac --arm64
+# Output: ../dist/electron_ui/DeepTutor-{version}-macos-arm64.dmg
+#         ../dist/electron_ui/DeepTutor-{version}-macos-arm64.zip
 ```
 
 ## Run in Development
