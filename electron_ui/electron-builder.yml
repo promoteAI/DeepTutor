@@ -26,7 +26,7 @@ nsis:
   shortcutName: DeepTutor
 productName: DeepTutor
 win:
-  artifactName: ${productName}-Setup-${version}-${arch}.${ext}
+  artifactName: ${productName}-Setup-${version}-${arch}-win.${ext}
   icon: logo.png
   signAndEditExecutable: false
   signDlls: false
@@ -39,7 +39,7 @@ win:
     - x64
     target: dir
 linux:
-  artifactName: ${productName}-${version}-${arch}.${ext}
+  artifactName: ${productName}-${version}-${arch}-linux.${ext}
   icon: logo.png
   maintainer: promoteAI <1035959050@qq.com>
   target:
@@ -48,7 +48,7 @@ linux:
     - arch: x64
       target: deb
 mac:
-  artifactName: ${productName}-${version}-${arch}.${ext}
+  artifactName: ${productName}-${version}-${arch}-macos.${ext}
   icon: logo.png
   category: public.app-category.education
   target:
