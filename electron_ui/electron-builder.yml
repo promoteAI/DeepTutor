@@ -42,7 +42,6 @@ linux:
   artifactName: ${productName}-${version}-${arch}.${ext}
   icon: logo.png
   maintainer: promoteAI <1035959050@qq.com>
-  homepage: https://github.com/promoteAI/DeepTutor
   target:
     - arch: x64
       target: AppImage
