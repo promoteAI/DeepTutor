@@ -86,7 +86,6 @@ jobs:
             os: macos-latest
             arch: x64
             target: mac
-            zip_cmd: zip -r dist/electron_ui/DeepTutor-${{needs.verify-version.outputs.version}}-mac-x64.zip dist/electron_ui/mac-unpacked/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -141,6 +140,7 @@ jobs:
         working-directory: electron_ui
         run: npx electron-builder --${{matrix.target}} --${{matrix.arch}} --config electron-builder.yml
       - name: Zip portable
+        if: matrix.zip_cmd
         run: ${{matrix.zip_cmd}}
       - name: Upload to release
         uses: softprops/action-gh-release@v2
